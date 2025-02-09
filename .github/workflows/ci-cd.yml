@@ -95,7 +95,7 @@ jobs:
 
           # Install/update Composer dependencies
           echo "Installing Composer dependencies..."
-          composer install --prefer-dist --no-dev --optimize-autoloader
+          composer install
           composer require irazasyed/telegram-bot-sdk
           php artisan install:broadcasting
           composer require laravel/reverb
@@ -104,8 +104,8 @@ jobs:
           composer require pusher/pusher-php-server
 
           # Run database migrations
-          echo "Running migrations..."
-          php artisan migrate --force
+          # echo "Running migrations..."
+          # php artisan migrate --force
 
           # Clear and cache configurations
           echo "Clearing and caching configurations..."
