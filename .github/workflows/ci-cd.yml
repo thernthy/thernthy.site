@@ -96,9 +96,9 @@ jobs:
           # Install/update Composer dependencies
           echo "Installing Composer dependencies..."
           composer require laravel/reverb --ignore-platform-req=ext-curl
-          php artisan install:broadcasting
+          # php artisan install:broadcasting
 
-          composer require pusher/pusher-php-server
+          # composer require pusher/pusher-php-server
 
           # Run database migrations
           # echo "Running migrations..."
