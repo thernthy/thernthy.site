@@ -128,7 +128,6 @@
 <script src="{{ asset('assets/thy/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
 <script src="{{ asset('assets/thy/vendor/swiper/swiper-bundle.min.js') }}"></script>
 
-<!-- Main JS File -->
 <script src="{{ asset('assets/thy/js/main.js') }}"></script>
     <script>
         const LivechartControll = document.getElementById('live-chart-controll');
