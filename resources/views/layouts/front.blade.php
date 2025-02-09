@@ -138,7 +138,6 @@
 
             // Check if the wrapper is active
             if (LivechartWrapper.classList.contains('active')) {
-            // Replace the SVG with the "cancel" SVG
             LivechartControll.innerHTML = `
                 <svg width="30px" height="30px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>cancel</title>
