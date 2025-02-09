@@ -63,8 +63,6 @@ jobs:
           echo "VPS_PATH is set to: $VPS_PATH"
           ssh -i ~/.ssh/id_thy -o StrictHostKeyChecking=no -o BatchMode=yes $VPS_USER@$VPS_HOST << EOF
           set -e
-          eval $(ssh-agent -s)
-          ssh-add ~/.ssh/id_thy
 
           # Export variables for use in the session
           export VPS_PATH="${{ env.VPS_PATH }}"
