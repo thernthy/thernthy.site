@@ -46,10 +46,14 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_thy
           chmod 600 ~/.ssh/id_thy
 
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/id_thy
       # Step 6: Add VPS to known hosts
       - name: Add VPS to known hosts
         run: |
+          mkdir -p ~/.ssh
           ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
   
       # Step 7: Deploy to VPS
       - name: Deploy to VPS
