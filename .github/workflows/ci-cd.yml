@@ -95,11 +95,8 @@ jobs:
 
           # Install/update Composer dependencies
           echo "Installing Composer dependencies..."
-          composer install --ignore-platform-req=ext-curl
-          composer require irazasyed/telegram-bot-sdk
+          composer require laravel/reverb --ignore-platform-req=ext-curl
           php artisan install:broadcasting
-          composer require laravel/reverb
-          php artisan reverb:install
 
           composer require pusher/pusher-php-server
 
