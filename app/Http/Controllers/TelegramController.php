@@ -3,37 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use App\Models\LiveChatMessage;
 
 class TelegramController extends Controller
 {
-    public function webhook(Request $request)
+    public function handleWebhook(Request $request)
     {
-        $update = $request->all();
-    
-        if (isset($update['message'])) {
-            $chatId = $update['message']['chat']['id'];
-            $messageText = $update['message']['text'];
-    
-            TelegramMessage::create([
-                'chat_id' => $chatId,
-                'message' => $messageText,
-            ]);
-    
-            $this->sendMessage($chatId, "Received: " . $messageText);
+        $message = $request->input('message');
+        if (!$message || !isset($message['text'])) {
+            return response()->json(['error' => 'Invalid message'], 400);
         }
-    
-        return response()->json(['status' => 'ok']);
-    }
 
-    public function sendMessage($chatId, $message)
-    {
-        $token = env('TELEGRAM_BOT_TOKEN');
-        $url = "https://api.telegram.org/bot{$token}/sendMessage";
+        $text = $message['text'];
+        $reply_to_text = explode("\n", $text, 3);
+        
+        if (count($reply_to_text) < 3) {
+            return response()->json(['error' => 'Invalid reply format'], 400);
+        }
 
-        Http::post($url, [
-            'chat_id' => $chatId,
-            'text' => $message,
+        $session_id = trim(str_replace('Session: ', '', $reply_to_text[1]));
+        $reply_message = $reply_to_text[2];
+
+        // Store the reply in database
+        LiveChatMessage::create([
+            'session_id' => $session_id,
+            'message' => $reply_message,
+            'is_from_user' => false,
+            'is_replied' => true,
         ]);
+
+        return response()->json(['success' => true]);
     }
 }

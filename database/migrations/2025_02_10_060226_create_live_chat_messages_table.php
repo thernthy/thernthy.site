@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('telegram_messages', function (Blueprint $table) {
+        Schema::create('live_chat_messages', function (Blueprint $table) {
             $table->id();
             $table->string('session_id');
             $table->text('message');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('telegram_messages');
+        Schema::dropIfExists('live_chat_messages');
     }
 };

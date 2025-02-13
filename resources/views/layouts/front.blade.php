@@ -2,6 +2,11 @@
 <html lang="kh">
 <head>
     <meta charset="UTF-8">
+    <meta property="og:image" content="{{ asset('web_profile.jpg') }}">
+    <meta property="og:title" content="THERNTHY | HOME">
+    <meta property="og:description" content="Full Stack Developer and Dog Lover">
+    <meta property="og:url" content="https://www.thernthy.site">
+    <meta property="og:type" content="website">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -15,9 +20,8 @@
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- Favicons -->
-    <link href="{{ asset('assets/thy/img/favicon.png') }}" rel="icon">
     <link href="{{ asset('assets/thy/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ asset('web_profile.jpg') }}" type="image/x-icon">
     <!-- Vendor CSS Files -->
     <link href="{{ asset('assets/thy/vendor/aos/aos.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/thy/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
@@ -47,6 +51,8 @@
     <!-- Styles -->
     @livewireStyles
     @yield('styles')
+    {{-- meta hader token --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body class="font-sans antialiased dark-white">
     @include('layouts.header')
@@ -162,6 +168,45 @@
             }
         });
         } 
+        document.querySelector('.sendder button').addEventListener('click', function () {
+            let messageInput = document.querySelector('.sendder input');
+            let message = messageInput.value.trim();
+
+            if (message.length === 0) return;
+
+            fetch('/live-chat/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({ message: message })
+            }).then(response => response.json()).then(data => {
+                if (data.success) {
+                    messageInput.value = '';
+                    loadMessages();
+                }
+            });
+        });
+
+        function loadMessages() {
+            fetch('/live-chat/messages')
+                .then(response => response.json())
+                .then(messages => {
+                    let chatBox = document.querySelector('.message');
+                    chatBox.innerHTML = '';
+                    messages.forEach(msg => {
+                        let msgDiv = document.createElement('div');
+                        msgDiv.classList.add('p-3', 'rounded-lg', 'shadow-md', 'w-fit');
+                        msgDiv.classList.add(msg.is_from_user ? 'self-end bg-white text-dark' : 'self-start bg-blue-500 text-white');
+                        msgDiv.textContent = msg.message;
+                        chatBox.appendChild(msgDiv);
+                    });
+                });
+        }
+
+        // Load messages every 5 seconds
+        setInterval(loadMessages, 5000);
   </script>
 
 </body>

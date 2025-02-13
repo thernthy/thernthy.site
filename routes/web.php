@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\HomePageController;
 use App\Http\Controllers\Admin\AboutPageController;
 use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\TelegramController;
+use App\Http\Controllers\LiveChatController;
 
 Route::get('/register', function () {
     return redirect('/login'); // Redirect from register to login
@@ -75,6 +76,9 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 
-Route::post('/telegram/webhook', [TelegramController::class, 'webhook']);
+Route::post('/telegram/webhook', [TelegramController::class, 'handleWebhook']);
+
+Route::post('/live-chat/send', [LiveChatController::class, 'sendMessage']);
+Route::get('/live-chat/messages', [LiveChatController::class, 'getMessages']);
 
 
