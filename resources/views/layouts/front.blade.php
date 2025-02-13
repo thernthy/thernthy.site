@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta property="og:image" content="https://thernthy.site/web_profile.jpg">
     <meta property="og:title" content="THERNTHY | HOME">
+    <meta property="og:title" content="ធឿន​ ​ធី | Full Stack Developer">
     <meta property="og:description" content="Full Stack Developer and Dog Lover">
     <meta property="og:url" content="{{url('/')}}">
     <meta property="og:type" content="website">
@@ -43,7 +44,7 @@
         $title = SiteMeta::where('meta_key', 'title')->where('locale', $locale)->value('meta_value');
     @endphp
     <title>{{$title}}|@yield('title', $title)</title>
-    <meta name="keywords" content="{{ $keywords }}">
+    <meta name="keywords" content="{{ $keywords }}, ធឿន​ ​ធី, Thernthy, Software Developer, Full Stack, Web Developer">
     <meta name="description" content="{{ $description }}">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
