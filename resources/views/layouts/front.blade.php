@@ -5,7 +5,7 @@
     <meta property="og:image" content="{{ asset('web_profile.jpg') }}">
     <meta property="og:title" content="THERNTHY | HOME">
     <meta property="og:description" content="Full Stack Developer and Dog Lover">
-    <meta property="og:url" content="https://www.thernthy.site">
+    <meta property="og:url" content="{{url('/')}}">
     <meta property="og:type" content="website">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -208,6 +208,14 @@
         // Load messages every 5 seconds
         setInterval(loadMessages, 5000);
   </script>
-
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "thernthy",
+        "url": "{{ url('/') }},
+        "image": "{{ asset('web_profile.jpg') }}"
+        }
+    </script>
 </body>
 </html>
