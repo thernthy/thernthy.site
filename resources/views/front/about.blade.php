@@ -295,7 +295,50 @@
       </div>
     </div>
     <div class="shadow py-3 px-4 rounded-md bg-[#ffffff] mx-6">
-      <div class="title"><h2 class="text-2xl">What I Do</h2></div>
+        <!-- Section Heading -->
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">What I Do</h2>
+        
+        <!-- Section Description -->
+        <p class="text-gray-600 text-lg text-center leading-relaxed max-w-3xl mx-auto mb-8">
+            I create seamless digital experiences by combining cutting-edge technology with intuitive design. From concept to deployment, I ensure your web applications are scalable, secure, and user-friendly.
+        </p>
+
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Service Card 1: UI/UX Design -->
+            <div class="service-card">
+                <div class="icon-container bg-gradient-to-r from-blue-500 to-purple-500">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">UI/UX Design</h3>
+                <p class="text-gray-600">
+                    I design visually stunning and user-friendly interfaces that prioritize usability and accessibility. From wireframes to prototypes, I ensure every interaction feels natural and engaging for your audience.
+                </p>
+            </div>
+
+            <!-- Service Card 2: Backend Development -->
+            <div class="service-card animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="icon-container bg-gradient-to-r from-blue-500 to-purple-500">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Backend Development</h3>
+                <p class="text-gray-600">
+                    I build robust and scalable backend systems using modern frameworks like Laravel, Node.js, and Django. Whether it's APIs, databases, or server logic, I ensure your application runs smoothly and securely.
+                </p>
+            </div>
+
+                <!-- Service Card 3: Server Management -->
+                <div class="service-card animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="icon-container bg-gradient-to-r from-blue-500 to-purple-500">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Server Management</h3>
+                    <p class="text-gray-600">
+                        I handle server setup, deployment, and maintenance to ensure your applications are always up and running. From cloud hosting to load balancing, I optimize performance and security for your infrastructure.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="shadow py-3 px-4 rounded-md bg-[#ffffff] mx-6">
       <div class="title"><h2 class="text-2xl">Team Meet</h2></div>
