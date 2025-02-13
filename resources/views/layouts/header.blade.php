@@ -38,7 +38,7 @@
     </i>
     <div class="border-8 border-[#e5e7eb] rounded-full h-24 w-24 mx-auto" 
       style="
-      background-image:url('{{asset("assets/thy/img/my-profile-img.jpg")}}');
+      background-image:url('https://avatars.githubusercontent.com/u/117651861?v=4');
       background-position: center;
       background-size: contain;
       "
