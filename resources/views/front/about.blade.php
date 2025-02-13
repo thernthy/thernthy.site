@@ -308,7 +308,7 @@
             <!-- Service Card 1: UI/UX Design -->
             <div class="service-card">
                 <div class="icon-container bg-gradient-to-r from-blue-500 to-purple-500">
-                    <i class="fas fa-palette"></i>
+                    <img src="{{asset("assets/thy/ux_ui_icon.png")}}">
                 </div>
                 <h3 class="text-2xl font-bold mb-4">UI/UX Design</h3>
                 <p class="text-gray-600">
@@ -319,7 +319,7 @@
             <!-- Service Card 2: Backend Development -->
             <div class="service-card animate__animated animate__fadeInUp animate__delay-1s">
                 <div class="icon-container bg-gradient-to-r from-blue-500 to-purple-500">
-                    <i class="fas fa-server"></i>
+                    <img src="{{asset("assets/thy/backend_icon.png")}}">
                 </div>
                 <h3 class="text-2xl font-bold mb-4">Backend Development</h3>
                 <p class="text-gray-600">
@@ -330,7 +330,7 @@
                 <!-- Service Card 3: Server Management -->
                 <div class="service-card animate__animated animate__fadeInUp animate__delay-2s">
                     <div class="icon-container bg-gradient-to-r from-blue-500 to-purple-500">
-                        <i class="fas fa-cogs"></i>
+                        <img src="{{asset("assets/thy/serve_icon.png")}}">
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Server Management</h3>
                     <p class="text-gray-600">
