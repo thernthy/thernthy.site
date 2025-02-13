@@ -204,9 +204,7 @@
                     });
                 });
         }
-
-        // Load messages every 5 seconds
-        setInterval(loadMessages, 5000);
+        //setInterval(loadMessages, 5000);
   </script>
     <script type="application/ld+json">
         {
