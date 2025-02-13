@@ -34,7 +34,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-The **Isaac Portfolio** is a modern, customizable portfolio system built with Laravel. It includes authentication, admin UI, and rich frontend features such as TinyMCE for text editing and Swiper for enhanced visuals. This project demonstrates a robust framework for portfolio management.
+The **Thy** is a modern, customizable portfolio system built with Laravel. It includes authentication, admin UI, and rich frontend features such as TinyMCE for text editing and Swiper for enhanced visuals. This project demonstrates a robust framework for portfolio management.
 
 ---
 
@@ -152,7 +152,7 @@ php artisan serve
 
 ## ✍️ Authors <a name="authors"></a>
 <ul>
-    <li><a href="https://github.com/IsaacTalb">@IsaacTalb</a> - Development & Management</li>
+    <li><a href="https://github.com/thernthy">@Thy</a> - Development & Management</li>
 </ul>
 
 ---
