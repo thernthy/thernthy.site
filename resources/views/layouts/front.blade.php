@@ -207,14 +207,5 @@
         }
         //setInterval(loadMessages, 5000);
   </script>
-    <script type="application/ld+json">
-        {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "thernthy",
-        "url": "https://thernthy.site",
-        "image": "https://thernthy.site/web_profile.jpg "
-        }
-    </script>
 </body>
 </html>
