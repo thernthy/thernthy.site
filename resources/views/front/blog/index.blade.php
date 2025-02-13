@@ -112,10 +112,10 @@
 @endsection
 
 @section('content')
-<div class="py-12 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="py-12">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Grid Container -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <!-- Card 1 -->
         <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col">
           <!-- Featured Image -->
@@ -172,6 +172,22 @@
             </p>
             <div class="text-sm text-gray-500 mt-auto">
               <span>By Alex Johnson</span>
+              <span> • </span>
+              <span>October 7, 2023</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col">
+          <img class="w-full h-48 object-cover" src="https://avatars.githubusercontent.com/u/117651861?v=4">
+          <div class="p-6 flex flex-col flex-grow">
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">
+              Hello
+            </h2>
+            <p class="text-gray-600 mb-4 overflow-hidden overflow-ellipsis line-clamp-3">
+              I’m a Full Stack Developer and a dog lover with a passion for crafting elegant, user-friendly digital experiences. I specialize in working as the Lead Designer at server-side APIs, UX/UI design, and backend development.
+            </p>
+            <div class="text-sm text-gray-500 mt-auto">
+              <span>Thy</span>
               <span> • </span>
               <span>October 7, 2023</span>
             </div>
