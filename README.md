@@ -1,10 +1,10 @@
 <p align="center">
   <a href="" rel="noopener">
-    <img width=200px height=200px src="https://yt3.googleusercontent.com/ytc/AIdro_k-ow8jwj_n13kt9qM7nzlITi1X_rnznyhBhX-H7WBmmY1J=s900-c-k-c0x00ffffff-no-rj" alt="Isaac Logo">
+    <img width=200px height=200px src="https://thernthy.site/web_profile.jpg" alt="Thy Profile">
   </a>
 </p>
 
-<h3 align="center">Portfolio Project</h3>
+<h3 align="center">Thy</h3>
 
 <div align="center">
 
