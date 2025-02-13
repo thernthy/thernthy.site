@@ -91,8 +91,14 @@
             <li><a href="#">Dropdown 3</a></li>
             <li><a href="#">Dropdown 4</a></li>
           </ul>
+        </li>--}
+        <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Componet Design</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li><a href="/">Soon</a></li>
+            <li><a href="#">Soon</a></li>
+          </ul>
         </li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li> --}}
+        {{---<li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>--}}
       </ul>
     </nav>
 </header>
