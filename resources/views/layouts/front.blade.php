@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="kh">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta property="og:image" content="https://thernthy.site/web_profile.jpg">
@@ -58,21 +58,30 @@
 <body class="font-sans antialiased dark-white">
     @include('layouts.header')
     <main class="main">
-    <div class="mx-auto">
-        <div class="flex justify-center gap-2 py-2 ">
-            <div class="py-1 px-4 shadow-md rounded-md
-            bg-green-300 text-white cursor-pointer
-            ">English</div>
-            <div class="text-red-300 py-1 px-4 shadow-md rounded-sm cursor-pointer">soon</div>
+        <div class="mx-auto">
+            <div class="flex justify-center gap-2 py-2">
+                <!-- English Button -->
+                <a href="{{ route('language.switch', 'en') }}"
+                   class="py-1 px-4 shadow-md rounded-md cursor-pointer
+                          {{ session()->get('locale') == 'en' ? 'bg-[#3b82f6] text-white' : '' }}">
+                    English
+                </a>
+        
+                <!-- Khmer Button -->
+                <a href="{{ route('language.switch', 'kh') }}"
+                   class="py-1 px-4 shadow-md rounded-md cursor-pointer
+                          {{ session()->get('locale') == 'kh' ? 'bg-[#3b82f6] text-white' : '' }}">
+                    Khmer
+                </a>
+            </div>
         </div>
-    </div>
         @yield('content')
     </main>
     @include('layouts.footer')
     @stack('scripts')
-    <div class="fixed bottom-3 right-2 live-chart-wrapper ">
+    <!--<div class="fixed bottom-3 right-2 live-chart-wrapper ">
         <div class="message-body h-full flex-col justify-end p-4 rounded-lg shadow-md w-full max-w-lg mx-auto">
-            <!-- Chat Messages -->
+            
             <div class="message space-y-2 flex flex-col transition-all duration-500 bar-white overflow-y-hidden hover:overflow-y-auto max-h-96 p-4">
                 <div class="bg-blue-500 text-white p-3 rounded-lg self-start w-fit shadow-md">
                     Hey, dir 
@@ -93,7 +102,6 @@
                     Owner message
                 </div>
             </div>
-            <!-- Message Input Area -->
             <div class="sendder flex items-center gap-2 p-2 bg-white border-t mt-4 rounded-b-lg">
                 <input 
                     type="text" 
@@ -122,7 +130,7 @@
                 </g>
             </svg>
         </div>
-    </div>
+    </div>-->
 <!-- Vendor JS Files -->
 <script src="{{ asset('assets/thy/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/thy/vendor/php-email-form/validate.js') }}"></script>

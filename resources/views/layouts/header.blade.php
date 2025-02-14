@@ -1,7 +1,7 @@
 
 
 
-<header id="header" class="header dark-background d-flex flex-column py-4">
+<header id="header" class="header bg-[#3b82f6] d-flex flex-column py-4">
     <i class="header-toggle  ">
       <?xml version="1.0" encoding="iso-8859-1"?>
         <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->

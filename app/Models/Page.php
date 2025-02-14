@@ -1,16 +1,15 @@
 <?php
-
 namespace App\Models;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Page extends Model
-{
-    use HasFactory;
-
-    protected $fillable = [
-        'title',
-        'content',
-        'slug',
-    ];
+class Page extends Model {
+    protected $table = 'pages';
+    protected $primaryKey = 'page_id';
+    protected $fillable = ['page_slug', 'page_url', 'page_body', 'locale'];
+    public static function getPageContent($slug, $locale) {
+        return self::where('page_slug', $slug)
+                   ->where('locale', $locale)
+                   ->first();
+    }
 }
+

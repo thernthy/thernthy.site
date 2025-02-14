@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\AboutPageController;
 use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\TelegramController;
 use App\Http\Controllers\LiveChatController;
+use App\Http\Controllers\LanguageController;
+
 
 Route::get('/register', function () {
     return redirect('/login'); // Redirect from register to login
@@ -80,5 +82,5 @@ Route::post('/telegram/webhook', [TelegramController::class, 'handleWebhook']);
 
 Route::post('/live-chat/send', [LiveChatController::class, 'sendMessage']);
 Route::get('/live-chat/messages', [LiveChatController::class, 'getMessages']);
-
+Route::get('language/{lang}', [LanguageController::class, 'switchLang'])->name('language.switch');
 
