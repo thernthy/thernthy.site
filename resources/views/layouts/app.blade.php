@@ -1,5 +1,4 @@
 
-{{dd(Laravel\Jetstream\Jetstream::managesProfilePhotos())}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -28,7 +27,16 @@
             <!-- Main Layout with Sidebar -->
             <div class="flex">
                 <!-- Sidebar -->
-                <aside class="w-64 bg-gray-800 text-white">
+                <aside class="w-64 bg-gray-800 text-white"
+                   style="
+                        position: fixed;
+                        height: 100vh;
+                        width: 260px;
+                        background: url(https://i.postimg.cc/054d9xdf/img.jpg);
+                        overflow: hidden;
+                        transition: .5sease;
+                    "
+                >
                     <div class="p-4">
                         <h2 class="text-2xl font-bold">THY SEVER</h2>
                         <nav class="mt-4">
