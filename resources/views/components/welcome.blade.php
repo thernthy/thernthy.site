@@ -100,13 +100,3 @@
     </div>
 </div>
 
-
-<!-- Contact Information Section -->
-<div class=" p-6 lg:p-8 mt-8 rounded-lg shadow">
-    <h2 class="text-2xl font-bold text-gray-800 mb-4">Contact Us</h2>
-    <p class="text-gray-500">Have questions or need support? Reach out to us!</p>
-    <ul class="mt-4 space-y-2 text-gray-700">
-        <li>Email: <a href="mailto:isaac@duckcloud.info" class="text-blue-500 hover:underline">isaac@duckcloud.info</a></li>
-        <li>Phone: +1 123-456-7890</li>
-    </ul>
-</div>
