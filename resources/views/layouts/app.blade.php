@@ -30,7 +30,7 @@
             <!-- Main Layout with Sidebar -->
             <div class="flex-1">
                 <!-- Sidebar -->
-                <aside class="w-64 bg-gray-800 top-0 text-white"
+                <aside class="w-64 shadow-md top-0 text-white"
                    style="
                         position: fixed;
                         height: 100vh;
