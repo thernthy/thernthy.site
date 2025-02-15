@@ -23,7 +23,7 @@
 
         <div class="min-h-screen"
             style="
-                background: radial-gradient(circle, rgb(1 16 75) 0%, rgb(3 26 80) 100%, rgb(1 10 69) 0%);
+              background: url(https://i.postimg.cc/054d9xdf/img.jpg);
             "
         >
             <!-- Main Layout with Sidebar -->
