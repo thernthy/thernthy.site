@@ -72,6 +72,12 @@
             Blogs 
           </a>
         </li>
+        <li>
+          <a href="/comunity-offer" class="{{ request()->is('comunity-offer')? 'bg-[#c0d6f94a] rounded-2xl rounded-t-none text-white' : 'text-gray-700' }}">
+            <i class="bi bi-file-earmark-text navicon"></i>
+            Comunity Offer
+          </a>
+        </li>
         <!-- <li><a href="/blogs"><i class="bi bi-file-earmark-text navicon"></i>Blogs</a></li>
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
         <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
