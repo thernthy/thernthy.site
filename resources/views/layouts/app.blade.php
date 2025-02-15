@@ -32,16 +32,16 @@
                         <nav class="mt-4">
                             <ul>
                                 <li class="mb-2">
-                                    <a href="{{ route('dashboard') }}" class="block p-2 hover:bg-gray-700">Dashboard</a>
+                                    <a href="{{ url('/dashboard') }}" class="block p-2 hover:bg-gray-700">Dashboard</a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="{{ route('users') }}" class="block p-2 hover:bg-gray-700">Users</a>
+                                    <a href="{{ url('/') }}" class="block p-2 hover:bg-gray-700">Users</a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="{{ route('settings') }}" class="block p-2 hover:bg-gray-700">Settings</a>
+                                    <a href="{{ url('/') }}" class="block p-2 hover:bg-gray-700">Settings</a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="{{ route('logout') }}" class="block p-2 hover:bg-gray-700">Logout</a>
+                                    <a href="{{ url('/') }}" class="block p-2 hover:bg-gray-700">Logout</a>
                                 </li>
                             </ul>
                         </nav>
