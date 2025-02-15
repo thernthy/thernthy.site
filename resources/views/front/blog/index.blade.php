@@ -119,7 +119,7 @@
                   <!-- Card 1 -->
         <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col">
           <!-- Featured Image -->
-          <img class="w-full h-48 object-cover" src="https://miro.medium.com/v2/resize:fit:3200/0*zeRxucTaTJETPnx6" alt="Blog Post Image">
+          <img class="w-full h-48 object-cover" src="https://blog.resellerspanel.com/wp-content/uploads/2018/10/multiple-domain-names-for-a-business-website.png" alt="How to Point a Domain to a Server">
   
           <!-- Card Content -->
           <div class="p-6 flex flex-col flex-grow">
