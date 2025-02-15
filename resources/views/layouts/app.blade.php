@@ -23,19 +23,48 @@
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+            <!-- Main Layout with Sidebar -->
+            <div class="flex">
+                <!-- Sidebar -->
+                <aside class="w-64 bg-gray-800 text-white">
+                    <div class="p-4">
+                        <h2 class="text-2xl font-bold">THY SEVER</h2>
+                        <nav class="mt-4">
+                            <ul>
+                                <li class="mb-2">
+                                    <a href="{{ route('dashboard') }}" class="block p-2 hover:bg-gray-700">Dashboard</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{{ route('users') }}" class="block p-2 hover:bg-gray-700">Users</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{{ route('settings') }}" class="block p-2 hover:bg-gray-700">Settings</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{{ route('logout') }}" class="block p-2 hover:bg-gray-700">Logout</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
-                </header>
-            @endif
+                </aside>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                <!-- Main Content -->
+                <div class="flex-1">
+                    <!-- Page Heading -->
+                    @if (isset($header))
+                        <header class="bg-white shadow">
+                            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                                {{ $header }}
+                            </div>
+                        </header>
+                    @endif
+
+                    <!-- Page Content -->
+                    <main class="p-6">
+                        {{ $slot }}
+                    </main>
+                </div>
+            </div>
         </div>
 
         @stack('modals')
