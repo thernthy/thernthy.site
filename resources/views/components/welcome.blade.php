@@ -10,7 +10,7 @@
 </div>
 
 
-<div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+<div class="p-6 lg:p-8">
     <h1 class="mt-8 text-3xl font-bold text-gray-900">
         Welcome to Your All-in-One Web Solution!
     </h1>
@@ -20,7 +20,7 @@
 </div>
 
 <!-- Stats and Reports Section -->
-<div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 lg:p-8">
+<div class=" grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 lg:p-8">
     <!-- Pie Chart (Sample) -->
     <div class="bg-white rounded-lg shadow-lg p-6">
         <h2 class="text-xl font-bold text-gray-800 mb-4">Quarterly Bandwidth Usage</h2>
@@ -55,7 +55,7 @@
 </div>
 
 <!-- Key Features Section -->
-<div class="bg-gray-50 p-6 lg:p-8">
+<div class="p-6 lg:p-8">
     <h2 class="text-2xl font-bold text-gray-800 text-center mb-6">Why Choose Us?</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="flex flex-col items-center text-center bg-white p-4 rounded-lg shadow">
@@ -102,7 +102,7 @@
 
 
 <!-- Contact Information Section -->
-<div class="bg-white p-6 lg:p-8 mt-8 rounded-lg shadow">
+<div class=" p-6 lg:p-8 mt-8 rounded-lg shadow">
     <h2 class="text-2xl font-bold text-gray-800 mb-4">Contact Us</h2>
     <p class="text-gray-500">Have questions or need support? Reach out to us!</p>
     <ul class="mt-4 space-y-2 text-gray-700">
