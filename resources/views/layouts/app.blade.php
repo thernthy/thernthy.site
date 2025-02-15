@@ -20,7 +20,6 @@
     </head>
     <body class="font-sans antialiased">
         <x-banner />
-
         <div class="min-h-screen"
             style="
               background: url(https://i.postimg.cc/054d9xdf/img.jpg);
@@ -36,9 +35,6 @@
                         position: fixed;
                         height: 100vh;
                         width: 260px;
-                        background: url(https://i.postimg.cc/054d9xdf/img.jpg);
-                        overflow: hidden;
-                        transition: .5sease;
                     "
                 >
                     <div class="p-4">
