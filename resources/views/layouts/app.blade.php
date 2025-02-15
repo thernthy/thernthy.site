@@ -35,6 +35,7 @@
                         position: fixed;
                         height: 100vh;
                         width: 260px;
+                        background:#02194fe0;
                     "
                 >
                     <div class="p-4">
