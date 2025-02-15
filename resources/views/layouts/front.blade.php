@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta property="og:image" content="https://thernthy.site/asset/thy/thernthy.site_42.jpg">
-    <link rel="icon" href="ttps://thernthy.site/assets/thy/thernthy.site_42.jpg" sizes="42x42" />
     <meta property="og:title" content="THERNTHY | HOME">
     <meta property="og:title" content="ធឿន​ ​ធី | Full Stack Developer">
     <meta property="og:description" content="Full Stack Developer and Dog Lover">
