@@ -116,6 +116,43 @@
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Grid Container -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <!-- Card 1 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col">
+          <!-- Featured Image -->
+          <img class="w-full h-48 object-cover" src="https://miro.medium.com/v2/resize:fit:3200/0*zeRxucTaTJETPnx6" alt="Blog Post Image">
+  
+          <!-- Card Content -->
+          <div class="p-6 flex flex-col flex-grow">
+            <!-- Title -->
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">
+              How to Point a Domain to a Server
+            </h2>
+  
+            <!-- Description with Ellipsis -->
+            <p class="text-gray-600 mb-4 overflow-hidden overflow-ellipsis line-clamp-3">
+                Get Server IP Address: Obtain the IP address of your server (e.g., from your hosting provider).
+                Access Domain DNS Settings:
+                Log in to your domain registrar account (e.g., GoDaddy, Namecheap).
+                Navigate to the DNS management section for your domain.
+                Update DNS Records:
+                Find the A Record (Address Record).
+                Change the Value or Points To field to your server’s IP address.
+                Save the changes.
+                Wait for Propagation:
+                DNS changes can take 24-48 hours to propagate globally.
+                Verify:
+                Use tools like DNS Checker or ping your domain to confirm it points to the server.
+                That’s it! Your domain is now pointing to your server.
+            </p>
+  
+            <!-- Metadata (Author and Date) -->
+            <div class="text-sm text-gray-500 mt-auto">
+              <span>By Thy</span>
+              <span> • </span>
+              <span>October 15, 2025</span>
+            </div>
+          </div>
+        </div>
         <!-- Card 1 -->
         <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col">
           <!-- Featured Image -->
