@@ -24,7 +24,7 @@
         <div class="min-h-screen"
             style="
               background: url(https://i.postimg.cc/054d9xdf/img.jpg);
-              background-size: auto;
+              background-size: 100%;
               background-repeat: repeat-y;
             "
         >
