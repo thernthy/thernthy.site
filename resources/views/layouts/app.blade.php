@@ -23,13 +23,13 @@
 
         <div class="min-h-screen"
             style="
-                background: radial-gradient(circle, rgba(45, 45, 186, 1) 37%, rgb(0 15 72) 100%), rgba(29, 21, 153, 1) 0%;
+                background: radial-gradient(circle, rgb(1 16 75) 0%, rgb(3 26 80) 100%, rgb(1 10 69) 0%);
             "
         >
             <!-- Main Layout with Sidebar -->
             <div class="flex-1">
                 <!-- Sidebar -->
-                <aside class="w-64 bg-gray-800 text-white"
+                <aside class="w-64 bg-gray-800 top-0 text-white"
                    style="
                         position: fixed;
                         height: 100vh;
