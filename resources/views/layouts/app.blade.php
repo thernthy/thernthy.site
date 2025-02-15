@@ -21,9 +21,11 @@
     <body class="font-sans antialiased">
         <x-banner />
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
-
+        <div class="min-h-screen"
+            style="
+                background: radial-gradient(circle, rgba(45, 45, 186, 1) 37%, rgb(0 15 72) 100%), rgba(29, 21, 153, 1) 0%;
+            "
+        >
             <!-- Main Layout with Sidebar -->
             <div class="flex-1">
                 <!-- Sidebar -->
@@ -104,9 +106,9 @@
                         </nav>
                     </div>
                 </aside>
-
                 <!-- Page Content -->
-                <main class="p-6">
+                <main class="p-4">
+                    @livewire('navigation-menu')
                         <!-- Page Heading -->
                         @if (isset($header))
                             <header class="bg-white shadow">
