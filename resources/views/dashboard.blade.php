@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto">
+        <div class="mx-auto">
             <div class="overflow-hidden shadow-xl sm:rounded-lg" style="background:#ffffffc7;">
                 <x-welcome />
             </div>
