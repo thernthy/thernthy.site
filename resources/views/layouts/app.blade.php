@@ -107,7 +107,7 @@
                     </div>
                 </aside>
                 <!-- Page Content -->
-                <main class="p-4">
+                <main>
                     @livewire('navigation-menu')
                         <!-- Page Heading -->
                         @if (isset($header))
