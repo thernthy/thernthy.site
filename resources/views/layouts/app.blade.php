@@ -109,7 +109,7 @@
                     </div>
                 </aside>
                 <!-- Page Content -->
-                <main>
+                <main style="padding-left:250px;">
                     {{ $slot }}
                 </main>
             </div>
