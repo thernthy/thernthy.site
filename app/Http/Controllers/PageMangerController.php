@@ -34,7 +34,7 @@ class PageMangerController extends Controller
             abort(404, 'Page not found');
         }
     
-        return view('ManagePage.edit', compact('page'));
+        return view('ManagePage.Edit', compact('page'));
     }
 
     public function modifyed(Request $request, $slug)
