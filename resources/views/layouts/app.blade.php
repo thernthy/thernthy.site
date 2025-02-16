@@ -42,16 +42,7 @@
                         <h2 class="text-2xl font-bold">THY SEVER</h2>
                         <nav class="mt-4">
                             <ul>
-                                <li class="mb-2">
-                                    <a href="{{ url('/dashboard') }}" class="block p-2 hover:bg-gray-700">Dashboard</a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="{{ url('/') }}" class="block p-2 hover:bg-gray-700">Users</a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="{{ url('/') }}" class="block p-2 hover:bg-gray-700">Settings</a>
-                                </li>
-                                <li class="mb-2">
+                            <li class="mb-2">
                                     <x-dropdown align="right" width="48">
                                         <x-slot name="trigger">
                                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -101,12 +92,21 @@
                                         </x-slot>
                                     </x-dropdown>
                                 </li>
+                                <li class="mb-2">
+                                    <a href="{{ route('manager') }}" class="block p-2 hover:bg-gray-700">Dashboard</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{{ route('page_manager') }}" class="block p-2 hover:bg-gray-700">Pages manager</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{{ url('/') }}" class="block p-2 hover:bg-gray-700">Settings</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
                 </aside>
                 <!-- Page Content -->
-                <main style="padding-left:250px;">
+                <main style="padding-left:260px;">
                     {{ $slot }}
                 </main>
             </div>

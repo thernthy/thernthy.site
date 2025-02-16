@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\TelegramController;
 use App\Http\Controllers\LiveChatController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\PageMangerController;
 
 
 Route::get('/register', function () {
@@ -55,11 +56,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::delete('/messages/{id}', [ContactMessageController::class, 'destroy'])->name('admin.messages.destroy');
 });
 
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->prefix('manager')->group(function () {
+    Route::get('/', function () {
         return view('dashboard');
-    })->name('dashboard');
+    })->name('manager');
+    Route::get('/page-manager', [PageMangerController::class, 'index'])->name('page_manager');
+    Route::get('/edit/{slug}', [PageMangerController::class, 'edit'])->name('page_manager.modify');
+    Route::post('/edit/{slug}', [PageMangerController::class, 'modifyed'])->name('page_manager.modify');
 });
+
 
 
 

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
-
+use Illuminate\Support\Facades\Auth;
 class FortifyServiceProvider extends ServiceProvider
 {
     /**
@@ -32,7 +32,13 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
-
+        // Custom authentication check for login and redirection
+        Fortify::authenticateUsing(function (Request $request) {
+            // If login is successful, redirect user
+            if (Auth::attempt($request->only('email', 'password'))) {
+                return redirect()->route('manager'); // Custom redirect to manager dashboard
+            }
+        });
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
 

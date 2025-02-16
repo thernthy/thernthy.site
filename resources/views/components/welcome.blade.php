@@ -8,47 +8,36 @@
         </h2>
     </x-slot>
 </div>
-
-
-<div class="p-6 lg:p-8">
-    <h1 class="mt-8 text-3xl font-bold text-gray-900">
-        Welcome to Your All-in-One Web Solution!
-    </h1>
-    <p class="mt-6 text-gray-500 leading-relaxed">
-        We specialize in creating instant full-stack web portfolios tailored for freelancers, designers, teachers, and social influencers. With cool features, seamless monitoring, and scalability, your online presence has never been easier to manage.
-    </p>
-</div>
-
 <!-- Stats and Reports Section -->
 <div class=" grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 lg:p-8">
     <!-- Pie Chart (Sample) -->
-    <div class="bg-white rounded-lg shadow-lg p-6">
-        <h2 class="text-xl font-bold text-gray-800 mb-4">Quarterly Bandwidth Usage</h2>
+    <div class="rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-bold text-white mb-4">Quarterly Bandwidth Usage</h2>
         <div class="flex justify-center">
             <!-- Add Pie Chart Here -->
             <div class="w-48 h-48 bg-blue-100 rounded-full flex items-center justify-center">
                 <p class="text-xl font-semibold text-blue-600">60%</p>
             </div>
         </div>
-        <p class="mt-4 text-gray-500 text-center">
+        <p class="mt-4 text-white text-center">
             You have utilized 60% of your allocated bandwidth this quarter. Monitor your usage to optimize performance.
         </p>
     </div>
 
-    <!-- Progress Bar (Sample) -->
-    <div class="bg-white rounded-lg shadow-lg p-6">
-        <h2 class="text-xl font-bold text-gray-800 mb-4">Memory & RAM Usage</h2>
+    <!-- Progress Bar (Sample) --> 
+    <div class="rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-bold text-white mb-4">Memory & RAM Usage</h2>
         <div>
-            <p class="text-sm font-medium text-gray-700">Memory Usage</p>
+            <p class="text-sm font-medium text-white">Memory Usage</p>
             <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
                 <div class="bg-green-500 h-4 rounded-full" style="width: 75%;"></div>
             </div>
-            <p class="text-sm font-medium text-gray-700">RAM Usage</p>
+            <p class="text-sm font-medium text-white">RAM Usage</p>
             <div class="w-full bg-gray-200 rounded-full h-4">
                 <div class="bg-red-500 h-4 rounded-full" style="width: 40%;"></div>
             </div>
         </div>
-        <p class="mt-4 text-gray-500 text-center">
+        <p class="mt-4 text-white  text-center">
             Track your resource consumption to ensure your website runs smoothly. Upgrade as needed for more capacity.
         </p>
     </div>

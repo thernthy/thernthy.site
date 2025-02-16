@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->string('page_url')->nullable(); // Optional URL
             $table->longText('page_body'); // Store full page HTML
             $table->string('locale')->default('en'); // Language
+            $table->boolean('status')->default(true); // Language
             $table->timestamps();
         });
     }
