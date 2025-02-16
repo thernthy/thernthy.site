@@ -102,7 +102,7 @@
         function saveEdit() {
             const content = document.getElementById('contentTextarea').value;
 
-            fetch("{{ route('page_manager.modify', ['slug' => $page->page_slug]) }}", {
+            fetch("{{ route('page_manager.modifyed', ['slug' => $page->page_slug]) }}", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

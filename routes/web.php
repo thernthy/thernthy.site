@@ -62,7 +62,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('manager')->group(functi
     })->name('manager');
     Route::get('/page-manager', [PageMangerController::class, 'index'])->name('page_manager');
     Route::get('/edit/{slug}', [PageMangerController::class, 'edit'])->name('page_manager.modify');
-    Route::post('/edit/{slug}', [PageMangerController::class, 'modifyed'])->name('page_manager.modify');
+    Route::post('/edit/{slug}', [PageMangerController::class, 'modifyed'])->name('page_manager.modifyed');
 });
 
 
