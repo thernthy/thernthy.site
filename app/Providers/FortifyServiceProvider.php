@@ -32,12 +32,11 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
-        // Custom authentication check for login and redirection
         Fortify::authenticateUsing(function (Request $request) {
-            // If login is successful, redirect user
             if (Auth::attempt($request->only('email', 'password'))) {
-                return redirect()->route('manager'); // Custom redirect to manager dashboard
+                return Auth::user(); // Return the authenticated user
             }
+            return null; 
         });
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
