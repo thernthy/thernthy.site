@@ -63,7 +63,6 @@ jobs:
           echo "Pulling latest changes..."
           git fetch --all
           git reset --hard origin/main
-          composer require icehouse-ventures/laravel-chartjs
           # Clear and cache configurations
           echo "Clearing and caching configurations..."
           php artisan config:clear
