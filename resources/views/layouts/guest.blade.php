@@ -17,11 +17,21 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body>
+    <body
+    style="
+        background: url(https://i.postimg.cc/054d9xdf/img.jpg);
+        background-size: 100%;
+        background-repeat: repeat-y;
+    "
+    >
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
 
         @livewireScripts
+        <script
+        src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+        type="module"
+        ></script>
     </body>
 </html>

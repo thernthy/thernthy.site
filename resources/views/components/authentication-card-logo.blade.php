@@ -1,4 +1,12 @@
 <a href="{{ url('/') }}">
-    <img src="{{ asset('./assets/img/dc_logo_750_750.png') }}" alt="Logo" class="h-16 w-auto">
+    <dotlottie-player
+        src="https://lottie.host/5b85cf8e-9dac-48ca-904b-5d35226f5aed/thjQ7JYymn.lottie"
+        background="transparent"
+        speed="1"
+        style="width: 250px; height: 250px"
+        loop
+        autoplay
+        >
+    </dotlottie-player>
 </a>
 

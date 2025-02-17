@@ -1,9 +1,5 @@
 <x-guest-layout>
     <x-authentication-card>
-        <x-slot name="logo" class="mb-4 h-auto w-auto">
-            <x-authentication-card-logo />
-        </x-slot>
-
         <x-validation-errors class="mb-4" />
 
         @session('status')
@@ -13,6 +9,9 @@
         @endsession
 
         <form method="POST" action="{{ route('login') }}">
+            <x-slot name="logo" class="mb-4 h-auto w-auto">
+                <x-authentication-card-logo />
+            </x-slot>
             @csrf
 
             <div>
@@ -22,7 +21,8 @@
 
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                <x-input
+                id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
