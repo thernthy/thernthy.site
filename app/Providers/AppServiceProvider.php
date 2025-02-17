@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use App\Actions\Fortify\LoginResponse as CustomLoginResponse;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -11,7 +11,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+       $this->app->singleton(LoginResponse::class, CustomLoginResponse::class);
     }
 
     /**
