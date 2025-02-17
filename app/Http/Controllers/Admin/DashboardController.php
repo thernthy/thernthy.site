@@ -13,8 +13,8 @@ class DashboardController extends Controller
     public function index()
     {
         $url = 'https://api.cloudflare.com/client/v4/graphql';
-        $zoneId = 'a61d04cf38e8c9a131e85fd1e57ea769'; // Replace with your actual Cloudflare Zone ID
-        $apiKey = 'rHH7kbZw_k9-cNDOPqU4HXUcN2O3PrAyF4ICCQqA'; // Replace with your actual API key
+        $zoneId = 'a61d04cf38e8c9a131e85fd1e57ea769'; 
+        $apiKey = 'rHH7kbZw_k9-cNDOPqU4HXUcN2O3PrAyF4ICCQqA'; 
 
         $today = Carbon::now()->format('Y-m-d');
         $yesterday = Carbon::yesterday()->format('Y-m-d');
