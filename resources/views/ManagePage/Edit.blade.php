@@ -36,7 +36,7 @@
 
         <div class="bg-white pt-4 h-4/5">
             <!-- Show Content (if not in editing mode) -->
-            <div id="contentDisplay">
+            <div id="contentDisplay" class="bg-white">
                 <div id="contentText">
                     {!! $page->page_body !!}
                 </div>
