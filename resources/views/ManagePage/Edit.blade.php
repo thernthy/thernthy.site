@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <div class="bg-white pt-4 h-4/5">
+        <div class="bg-white pt-4">
             <!-- Show Content (if not in editing mode) -->
             <div id="contentDisplay" class="bg-white">
                 <div id="contentText">
@@ -43,7 +43,7 @@
             </div>
 
             <!-- Editable Textarea (if in editing mode) -->
-            <div id="contentEdit" class="h-full" style="display: none;">
+            <div id="contentEdit" class="h-4/5" style="display: none;">
                 <textarea id="contentTextarea" class="w-full h-full hp-2 border rounded">{{ $page->page_body }}</textarea>
             </div>
 
