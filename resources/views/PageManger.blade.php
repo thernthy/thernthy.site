@@ -3,7 +3,7 @@
     <div class="py-5 data_filter_wraper header_" style="color: #fff;">
         <div class="flex justify-start gap-4 items-center mb-5">
             <div class="search_wraper flex space-x-4 items-center">
-                <select class="bg-transparent shadow-md"  title="Print Rows" style="border-radius: 8px; border: 1px solid #02192f00;">
+                <select class="bg-transparent shadow-md"  title="Print Rows" style="background:#02174e; border-radius: 8px; border: 1px solid #02192f00;">
                     <option value="page_id">Page ID</option>
                     <option value="page_url">Page URL</option>
                     <option value="Page_name">Page Name</option>
@@ -12,18 +12,21 @@
                 <input type="text" placeholder="Enter Keyword...." title="keyword"class="bg-transparent shadow-md" style="border-radius: 8px; border: 1px solid #02192f00;" />
             </div>
             <div class="print_rows_wraper flex space-x-4">
-                <select placeholder="Print Rows" title="Print Rows"class="bg-transparent shadow-md" style="border-radius: 8px; border: 1px solid #02192f00;">
+                <select placeholder="Print Rows" title="Print Rows"class="bg-transparent shadow-md" style="background:#02174e; border-radius: 8px; border: 1px solid #02192f00;">
                     <option value="25">25</option>
                     <option value="50">50</option>
                     <option value="100">100</option>
                 </select>
             </div>
             <div class="print_rows_wraper flex space-x-4">
-                <select placeholder="PrintRows" class="bg-transparent shadow-md"  title="Print Rows" style="border-radius: 8px; border: 1px solid #02192f00;">
+                <select placeholder="PrintRows" class="bg-transparent shadow-md"   title="Print Rows" style="background:#02174e; border-radius: 8px; border: 1px solid #02192f00;">
                     <option value="25">Public</option>
                     <option value="50">Private</option>
                     <option value="100">Delet</option>
                 </select>
+            </div>
+            <div class="print_rows_wraper flex space-x-4">
+                <a href="{{ route('page_manager.create') }}" class="py-2 px-3 bg-transparent shadow-md rounded-md">Create Page</button>
             </div>
         </div>
     </div>

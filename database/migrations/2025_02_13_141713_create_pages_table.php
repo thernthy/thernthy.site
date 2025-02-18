@@ -10,7 +10,8 @@ return new class extends Migration {
             $table->string('page_slug')->unique(); // e.g., "about", "contact"
             $table->string('page_url')->nullable(); // Optional URL
             $table->longText('page_body'); // Store full page HTML
-            $table->string('locale')->default('en'); // Language
+            $table->string('locale')->default(value: 'en'); // Language
+            $table->integer('rela_page')->default(null); // Language
             $table->boolean('status')->default(true); // Language
             $table->timestamps();
         });

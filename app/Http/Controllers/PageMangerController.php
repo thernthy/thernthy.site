@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 class PageMangerController extends Controller
 {
     public function index(Request $request){
@@ -65,5 +66,88 @@ class PageMangerController extends Controller
         }
     }    
 
+    public function viewCreate()
+    {
+        $pages = Page::selectRaw('MIN(page_id) as page_id, MIN(page_slug) as page_slug, page_url')
+        ->groupBy('page_url')
+        ->get();
+
+        return view('ManagePage.Create', compact('pages'));
+    }
+    
+
+    public function storeCreate(Request $request)
+{
+    try {
+        // Validate the incoming request
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'language' => 'required|string|max:5',
+            'translate' => 'required|boolean',
+            'public' => 'required|boolean',
+            'related_page' => 'nullable|exists:pages,page_id',  // Only if related page is provided
+            'code' => 'required|string',
+        ]);
+
+        // Extract validated data
+        $title = $validated['title'];
+        $language = $validated['language'];
+        $translate = $validated['translate'];
+        $public = $validated['public'];
+        $related_page = $validated['related_page'] ?? null; // Null if no related page
+        $code = $validated['code'];
+
+        if ($translate && $related_page) {
+            // Find the related page
+            $page = DB::table('pages')->where('page_id', $related_page)->first();
+
+            // Check if the related page exists
+            if (!$page) {
+                return response()->json(['message' => 'Related page not found.'], 404);
+            }
+
+            // Insert translated page into database
+            DB::table('pages')->insert([
+                'page_url' => $page->page_url,
+                'page_slug' => $page->page_slug,
+                'locale' => $language,
+                'page_body' => $code,
+                'status' => $public, // Add 'public' status for the translated page
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+
+            return response()->json(['message' => 'Page created successfully!'], 201);
+        }
+
+        // Slug creation and conflict check
+        $newSlug = Str::slug($title);
+
+        // Check if the slug already exists
+        $existingPage = DB::table('pages')->where('page_slug', $newSlug)->first();
+        if ($existingPage) {
+            return response()->json(['message' => 'Page with the same slug already exists.'], 409); // Conflict error
+        }
+
+        // Insert new page into the database
+        DB::table('pages')->insert([
+            'page_url' => $title,
+            'page_slug' => $newSlug,
+            'locale' => $language,
+            'page_body' => $code,
+            'status' => $public, // Add 'public' status
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+            return response()->json(['message' => 'Page created successfully!'], 201);
+
+        } catch (\Exception $e) {
+            // Return a response with error details
+            return response()->json(['message' => 'There was an error creating the page. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+    }
+
+    
     
 }
