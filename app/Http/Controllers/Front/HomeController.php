@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 use App\Models\HomePageContent;
 use App\Http\Controllers\Controller;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller

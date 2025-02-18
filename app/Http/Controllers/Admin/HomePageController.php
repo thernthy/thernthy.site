@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\HomePageContent;
 use App\Http\Controllers\Controller;
+use App\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
 
 class HomePageController extends Controller
 {
@@ -128,4 +130,16 @@ class HomePageController extends Controller
         return redirect()->route('admin.home.edit', $id)->with('success', 'Image deleted successfully!');
     }
 
+    
+    public function pageRender($slug)
+    {
+        
+        $system_locale = session('locale', 'en'); 
+    
+        $page = Page::where('page_slug', $slug)
+                    ->where('locale', $system_locale)
+                    ->first();
+        return view('front.demo.pageRender', compact('page'));
+    }
+    
 }

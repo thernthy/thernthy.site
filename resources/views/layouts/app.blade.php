@@ -28,14 +28,16 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
-        <x-banner />
-        <div class="min-h-screen"
+    <body class="font-sans antialiased"
             style="
               background: url(https://i.postimg.cc/054d9xdf/img.jpg);
               background-size: 100%;
               background-repeat: repeat-y;
             "
+        >
+        <x-banner />
+        <div class="min-h-screen"
+
         >
             <!-- Main Layout with Sidebar -->
             <div class="flex-1">

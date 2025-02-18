@@ -22,7 +22,10 @@ class PageMangerController extends Controller
     public function edit($slug, Request $request)
     {
         $pageId = $request->query('page_id'); // Get page_id from URL query string
-    
+        $pages = Page::selectRaw('MIN(page_id) as page_id, MIN(page_slug) as page_slug, page_url')
+        ->groupBy('page_url')
+        ->get();
+
         // If page_id is missing, return 404
         if (!$pageId) {
             abort(404, 'Page ID is required');
@@ -35,7 +38,7 @@ class PageMangerController extends Controller
             abort(404, 'Page not found');
         }
     
-        return view('ManagePage.Edit', compact('page'));
+        return view('ManagePage.Edit', compact('page','pages'));
     }
 
     public function modifyed(Request $request, $slug)
@@ -147,7 +150,19 @@ class PageMangerController extends Controller
             return response()->json(['message' => 'There was an error creating the page. Please try again.', 'error' => $e->getMessage()], 500);
         }
     }
-
+    public function destroy($page_id)
+    {
+        $page = Page::find($page_id);
+    
+        if (!$page) {
+            return redirect()->back()->with('error', 'Page not found.');
+        }
+    
+        $page->delete();
+    
+        return redirect()->back()->with('success', 'Page deleted successfully.');
+    }
+    
     
     
 }

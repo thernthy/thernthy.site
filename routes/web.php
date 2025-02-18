@@ -63,6 +63,8 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('manager')->group(functi
     Route::post('/edit/{slug}', [PageMangerController::class, 'modifyed'])->name('page_manager.modifyed');
     Route::get('page/create', [PageMangerController::class, 'viewCreate'])->name('page_manager.create');
     Route::post('page/created', [PageMangerController::class, 'storeCreate'])->name('page_manager.created');
+    Route::get('page/delete/{page_id}', [PageMangerController::class, 'destroy'])->name('page.destroy');
+
 });
 
 
@@ -71,6 +73,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('manager')->group(functi
 // Frontend routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('demo/{sluge}', [HomePageController::class, 'pageRender'])->name('page_demo');
 
 
 // Frontend Routes for Blog Posts
