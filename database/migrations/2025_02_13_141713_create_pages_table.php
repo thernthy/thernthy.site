@@ -7,8 +7,10 @@ return new class extends Migration {
     public function up(): void {
         Schema::create('pages', function (Blueprint $table) {
             $table->id('page_id');
-            $table->string('page_slug')->unique(); // e.g., "about", "contact"
+            $table->string('page_name')->nullable(); // e.g., "about", "contact"
+            $table->string('page_slug')->nullable(); // e.g., "about", "contact"
             $table->string('page_url')->nullable(); // Optional URL
+            $table->string('root_path')->nullable(); // Optional URL
             $table->longText('page_body'); // Store full page HTML
             $table->string('locale')->default(value: 'en'); // Language
             $table->integer('rela_page')->default(null); // Language

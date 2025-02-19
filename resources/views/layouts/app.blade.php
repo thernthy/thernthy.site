@@ -111,7 +111,10 @@
                                     <a href="{{ route('page_manager') }}" class="block p-2 hover:bg-gray-700">Pages manager</a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="{{ url('/') }}" class="block p-2 hover:bg-gray-700">Settings</a>
+                                    <a href="{{ route('manager.blogs.list') }}" class="block p-2 hover:bg-gray-700">Manage Blogs</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{{ route('manager.galary') }}" class="block p-2 hover:bg-gray-700">Galary</a>
                                 </li>
                             </ul>
                         </nav>

@@ -47,10 +47,10 @@
 
                 <div class="print_rows_wraper flex space-x-4">
                     <select id="relatedPage" class="text-white bg-transparent shadow-md" style="background:#02174e; border-radius: 8px; border: 1px solid #02192f00;">
-                        <option value="">Select Page Related For</option>
-                        @if(isset($pages))
-                            @foreach ($pages as $page)
-                            <option value="{{ $page->page_id }}">{{ $page->page_slug }}</option>
+                        <option value="">Select Blog Related For</option>
+                        @if(isset($blogs))
+                            @foreach ($blogs as $blog)
+                            <option value="{{ $blog->id }}">{{ $blog->title }}</option>
                             @endforeach
                         @endif
                     </select>
@@ -70,8 +70,7 @@
 
                 <button type="submit" class="px-3 shadow-md rounded-md py-2 text-white bg-blue-600 hover:bg-blue-700">Save</button>
             </div>
-            <!-- CodeMirror Editor -->
-            <x-code-editor id="codeEditor" code="" name="code" label="Enter Your Code" mode="xml" />
+            <x-code-editor id="codeEditor" code="" name="code" label="Enter your conent" mode="xml" />
         </form>
     </div>
 

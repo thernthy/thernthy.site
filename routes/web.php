@@ -16,6 +16,7 @@ use App\Http\Controllers\TelegramController;
 use App\Http\Controllers\LiveChatController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PageMangerController;
+use App\Http\Controllers\PhotoGalaryController;
 
 
 Route::get('/register', function () {
@@ -64,7 +65,12 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('manager')->group(functi
     Route::get('page/create', [PageMangerController::class, 'viewCreate'])->name('page_manager.create');
     Route::post('page/created', [PageMangerController::class, 'storeCreate'])->name('page_manager.created');
     Route::get('page/delete/{page_id}', [PageMangerController::class, 'destroy'])->name('page.destroy');
-
+    Route::get('blogs', [BlogController::class, 'ListBlogs'])->name('manager.blogs.list');
+    Route::get('/galary', [PhotoGalaryController::class, 'Lists'])->name('manager.galary');
+    Route::get('/api/galary', [PhotoGalaryController::class, 'ApiFetch'])->name('manager.galary.fechtApi');
+    Route::post('/upload-image', [PhotoGalaryController::class, 'uploadImage'])->name('manager.uploadImage');
+    Route::post('/upload-url', [PhotoGalaryController::class, 'uploadUrl'])->name('uploadUrl');
+    Route::post('/remove-item', [PhotoGalaryController::class, 'removeItem'])->name('removeItem');
 });
 
 
@@ -75,11 +81,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('demo/{sluge}', [HomePageController::class, 'pageRender'])->name('page_demo');
 
+Route::get('blog/view/{slug}', [BlogController::class, 'View'])->where('slug', '.*');
 
 // Frontend Routes for Blog Posts
 Route::prefix('blogs')->name('blog.')->group(function () {
     Route::get('/', [\App\Http\Controllers\Front\BlogController::class, 'index'])->name('index');
-    Route::get('/{slug}', [\App\Http\Controllers\Front\BlogController::class, 'show'])->name('show');
+//     Route::get('/{slug}', [\App\Http\Controllers\Front\BlogController::class, 'show'])->name('show');
 });
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');

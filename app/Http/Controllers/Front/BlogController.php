@@ -18,4 +18,16 @@ class BlogController extends Controller
         $post = BlogPost::where('slug', $slug)->firstOrFail();
         return view('front.blog.show', compact('post'));
     }
+
+    public function ListBlogs(Request $request){
+        return view('blogs.blogs');
+    }
+    public function Create(Request $request){
+        $blogs = BlogPost::select('id','title','slug')->get();
+        return view('blogs.create', compact('blogs'));
+    }
+
+    public function View(){
+        
+    }
 }

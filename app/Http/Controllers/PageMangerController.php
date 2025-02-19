@@ -86,6 +86,7 @@ class PageMangerController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'language' => 'required|string|max:5',
+            'root_path' => 'required|string',
             'translate' => 'required|boolean',
             'public' => 'required|boolean',
             'related_page' => 'nullable|exists:pages,page_id',  // Only if related page is provided
@@ -99,6 +100,11 @@ class PageMangerController extends Controller
         $public = $validated['public'];
         $related_page = $validated['related_page'] ?? null; // Null if no related page
         $code = $validated['code'];
+        $root_path=null;
+        if($validated['root_path']!=='/'){
+            $root_path = $validated['root_path'];
+        }
+        
 
         if ($translate && $related_page) {
             // Find the related page
@@ -111,8 +117,10 @@ class PageMangerController extends Controller
 
             // Insert translated page into database
             DB::table('pages')->insert([
+                'page_name' => $title,
                 'page_url' => $page->page_url,
                 'page_slug' => $page->page_slug,
+                'root_path' => $page->root_path,
                 'locale' => $language,
                 'page_body' => $code,
                 'status' => $public, // Add 'public' status for the translated page
@@ -131,10 +139,12 @@ class PageMangerController extends Controller
         if ($existingPage) {
             return response()->json(['message' => 'Page with the same slug already exists.'], 409); // Conflict error
         }
+        $page_url = $root_path ? $root_path . '/'. $newSlug : '/'.$newSlug;
 
-        // Insert new page into the database
         DB::table('pages')->insert([
-            'page_url' => $title,
+            'page_name' => $title,
+            'page_url' =>  $page_url,
+            'root_path' => $validated['root_path'] ?? '/',
             'page_slug' => $newSlug,
             'locale' => $language,
             'page_body' => $code,

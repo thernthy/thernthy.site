@@ -77,6 +77,15 @@
 
                         <input type="text" id="pageTitle" value="{{ $page->page_slug }}" placeholder="Page title" class="text-white bg-transparent shadow-md" style="border-radius: 8px; border: 1px solid #02192f00;" required />
                     </div>
+
+                    <div class="search_wraper flex space-x-4 items-center">
+                        <select id="root_path" class="bg-transparent text-white shadow-md" style="background:#02174e; border-radius: 8px; border: 1px solid #02192f00;">
+                            <option value="/" {{ $page->root_path == '/' ? 'selected' : '' }}>index</option>
+                            <option value="blogs" {{ $page->root_path == 'blogs' ? 'selected' : '' }}>blogs</option>
+                            <option value="knowlendge" {{ $page->root_path == 'knowlendge' ? 'selected' : '' }}>knowlendge</option>
+                            <option value="support" {{ $page->root_path == 'support' ? 'selected' : '' }}>support</option>
+                        </select>
+                    </div>
                     
                     <!-- Translate Switch -->
                     <div class="print_rows_wrapper flex items-center space-x-4 p-4 py-2 rounded-lg shadow-md bg-transparent">
