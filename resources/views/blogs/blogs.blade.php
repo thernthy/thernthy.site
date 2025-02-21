@@ -132,7 +132,7 @@
                     </select>
                 </div>
                 <div class="print_rows_wraper flex space-x-4">
-                    <a href="{{ route('page_manager.create') }}" class="py-2 px-3 bg-transparent shadow-md rounded-md">Create Page</a>
+                    <a href="{{ route('manager.blogs.create') }}" class="py-2 px-3 bg-transparent shadow-md rounded-md">Create Page</a>
                 </div>
             </div>
     </div>

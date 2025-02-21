@@ -176,90 +176,87 @@
             }
 
             function fetchNewGalaryData() {
-    // Fetching the gallery data from the server
-    fetch("{{ route('manager.galary.fechtApi') }}", {
-        method: 'GET',
-        headers: {
-            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            "Content-Type": "application/json" // Ensure the content type is JSON
-        }
-    })
-    .then(response => response.json()) // Parse the JSON response
-    .then(data => {
-        // Check if the data contains 'images' and it's an array
-        if (data && Array.isArray(data.images)) {
-            renderImages(data.images); // Call the function to render the images
-        } else {
-            console.error("Expected 'images' to be an array, but got:", data);
-        }
-    })
-    .catch(error => {
-        console.error("Error fetching gallery data:", error);
-    });
-}
+                // Fetching the gallery data from the server
+                fetch("{{ route('manager.galary.fechtApi') }}", {
+                    method: 'GET',
+                    headers: {
+                        "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        "Content-Type": "application/json" // Ensure the content type is JSON
+                    }
+                })
+                .then(response => response.json()) // Parse the JSON response
+                .then(data => {
+                    // Check if the data contains 'images' and it's an array
+                    if (data && Array.isArray(data.images)) {
+                        renderImages(data.images); // Call the function to render the images
+                    } else {
+                        console.error("Expected 'images' to be an array, but got:", data);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching gallery data:", error);
+                });
+            }
 
 
         });
 
         function renderImages(images) {
-    console.log(images); // Log the images data to verify
+            const imageGrid = document.querySelector('.galary_wrapper'); // This is your image grid container
+            if (!imageGrid) {
+                console.error("Image grid container not found");
+                return;
+            }
 
-    const imageGrid = document.querySelector('.galary_wrapper'); // This is your image grid container
-    if (!imageGrid) {
-        console.error("Image grid container not found");
-        return;
-    }
+            imageGrid.innerHTML = ''; // Clear any existing images
 
-    imageGrid.innerHTML = ''; // Clear any existing images
+            // Loop through the image data and render each image
+            images.forEach(image => {
+                const imageCard = document.createElement('div');
+                imageCard.classList.add('relative', 'shadow-lg', 'rounded-lg', 'overflow-hidden', 'flex', 'flex-col');
+                // Check if the image has a URL or path
+                let imageUrl = '';
+                if (image.url) {
+                    imageUrl = image.url; // External image
+                } else if (image.path) {
+                    imageUrl = image.path; // Local image
+                }
 
-    // Loop through the image data and render each image
-    images.forEach(image => {
-        const imageCard = document.createElement('div');
-        imageCard.classList.add('relative', 'shadow-lg', 'rounded-lg', 'overflow-hidden', 'flex', 'flex-col');
+                console.log(imageUrl); // Check the image URL
 
-        // Check if the image has a URL or path
-        let imageUrl = '';
-        if (image.url) {
-            imageUrl = image.url; // External image
-        } else if (image.path) {
-            imageUrl = image.path; // Local image
+                const imgElement = document.createElement('img');
+                imgElement.src = imageUrl;
+                imgElement.classList.add('w-full', 'h-48', 'object-cover');
+
+                // Add the image to the card
+                imageCard.appendChild(imgElement);
+
+                const imageDetails = document.createElement('div');
+                imageDetails.classList.add('p-4', 'text-white', 'flex', 'flex-col', 'flex-grow');
+
+                const uploadDate = document.createElement('span');
+                uploadDate.classList.add('text-sm', 'text-gray-300');
+                uploadDate.textContent = `Uploaded on: ${new Date(image.date).toLocaleDateString()}`;
+                imageDetails.appendChild(uploadDate);
+
+                // Add the copy button
+                const copyButton = document.createElement('button');
+                copyButton.textContent = 'Copy';
+                copyButton.onclick = () => copyToClipboard(imageUrl);
+                copyButton.classList.add('py-5', 'px-3', 'absolute', 'top-3');
+                copyButton.style.cssText = `
+                    top: -20px;
+                    border-radius: 12px 0px 85px 34px;
+                    background: #021a50;
+                `;
+
+                imageDetails.appendChild(copyButton);
+                imageCard.appendChild(imageDetails);
+
+                // Append the card to the grid
+                imageGrid.appendChild(imageCard);
+            });
         }
-
-        console.log(imageUrl); // Check the image URL
-
-        const imgElement = document.createElement('img');
-        imgElement.src = imageUrl;
-        imgElement.classList.add('w-full', 'h-48', 'object-cover');
-
-        // Add the image to the card
-        imageCard.appendChild(imgElement);
-
-        const imageDetails = document.createElement('div');
-        imageDetails.classList.add('p-4', 'text-white', 'flex', 'flex-col', 'flex-grow');
-
-        const uploadDate = document.createElement('span');
-        uploadDate.classList.add('text-sm', 'text-gray-300');
-        uploadDate.textContent = `Uploaded on: ${new Date(image.date).toLocaleDateString()}`;
-        imageDetails.appendChild(uploadDate);
-
-        // Add the copy button
-        const copyButton = document.createElement('button');
-        copyButton.textContent = 'Copy';
-        copyButton.onclick = () => copyToClipboard(imageUrl);
-        copyButton.classList.add('py-5', 'px-3', 'absolute', 'top-3');
-        copyButton.style.cssText = `
-            top: -20px;
-            border-radius: 12px 0px 85px 34px;
-            background: #021a50;
-        `;
-
-        imageDetails.appendChild(copyButton);
-        imageCard.appendChild(imageDetails);
-
-        // Append the card to the grid
-        imageGrid.appendChild(imageCard);
-    });
-}
 
 
 

@@ -66,6 +66,8 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('manager')->group(functi
     Route::post('page/created', [PageMangerController::class, 'storeCreate'])->name('page_manager.created');
     Route::get('page/delete/{page_id}', [PageMangerController::class, 'destroy'])->name('page.destroy');
     Route::get('blogs', [BlogController::class, 'ListBlogs'])->name('manager.blogs.list');
+    Route::get('blogs/create', [BlogController::class, 'Create'])->name('manager.blogs.create');
+    Route::post('blogs/created', [BlogController::class, 'Store'])->name('manager.blogs.created');
     Route::get('/galary', [PhotoGalaryController::class, 'Lists'])->name('manager.galary');
     Route::get('/api/galary', [PhotoGalaryController::class, 'ApiFetch'])->name('manager.galary.fechtApi');
     Route::post('/upload-image', [PhotoGalaryController::class, 'uploadImage'])->name('manager.uploadImage');
@@ -81,7 +83,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('demo/{sluge}', [HomePageController::class, 'pageRender'])->name('page_demo');
 
-Route::get('blog/view/{slug}', [BlogController::class, 'View'])->where('slug', '.*');
+Route::get('blog/view/{slug}', [BlogController::class, 'View'])->where('slug', 'blog/view/.*');
 
 // Frontend Routes for Blog Posts
 Route::prefix('blogs')->name('blog.')->group(function () {
