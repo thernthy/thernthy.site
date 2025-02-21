@@ -99,6 +99,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+
             const usePageSwitch = document.getElementById("usePageSwitch");
             const relatedPageWrapper = document.querySelector(".print_rows_wraper"); // Wrapper div of the select
 
@@ -126,6 +127,7 @@
             });
         // Form submission handler
         document.getElementById("pageForm").addEventListener("submit", async function(event) {
+            const img = document.getElementById("cover_image").value
             event.preventDefault();
             const codeValue = codeEditor.getValue().trim(); // Trim to remove whitespace
             // Validate code field
@@ -151,7 +153,7 @@
                 translate: document.getElementById("usePageSwitch").checked ? 1 : 0,
                 public: document.getElementById("publicSwitch").checked ? 1 : 0,
                 related_page: document.getElementById("relatedPage").value,
-                cover_picture: document.getElementById("cover_image").value,
+                cover_picture: img,
                 code: codeValue // Ensuring code is not empty
             };
 

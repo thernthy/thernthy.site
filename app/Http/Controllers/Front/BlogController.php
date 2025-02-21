@@ -22,8 +22,23 @@ class BlogController extends Controller
         return view('front.blog.show', compact('post'));
     }
 
-    public function ListBlogs(Request $request){
-        return view('blogs.blogs');
+    public function ListBlogs(Request $request)
+    {
+
+        $perPage = $request->input('page', 25); // Number of items per page
+        $search = $request->input('search', null); // Search term
+        $status = $request->input('status', 1); // Filter by status (default: 1 for active/public)
+        $query = BlogPost::query();
+        if ($search) {
+            $query->where('title', 'like', '%' . $search . '%')
+                  ->orWhere('content', 'like', '%' . $search . '%');
+        }
+
+        if ($status !== null) {
+            $query->where('status', $status);
+        }
+        $blogs = $query->paginate($perPage);
+        return view('blogs.blogs', compact('blogs', 'search', 'status'));
     }
     public function Create(Request $request){
         $pages = Page::selectRaw('MIN(page_id) as page_id, MIN(page_slug) as page_slug, page_url')
@@ -39,7 +54,7 @@ class BlogController extends Controller
             'translate' => 'required|boolean',
             'public' => 'required|boolean',
             'related_page' => 'nullable|string',
-            'cover_image' => 'nullable|string',
+            'cover_picture' => 'required|string',
             'code' => 'required|string', // Ensure the code field is not empty
         ]);
     
@@ -56,7 +71,7 @@ class BlogController extends Controller
             $blog->status = $request->public;
             $blog->used_page = $request->related_page ?? null; // Assign related_page to used_page if it exists
             $blog->content = $request->code;
-            $blog->cover_image = $request->cover_image;
+            $blog->cover_image = $request->cover_picture;
             $blog->save();
     
             return response()->json(['success' => true, 'message' => 'Blogs creation successfully']);
