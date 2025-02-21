@@ -83,10 +83,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('demo/{sluge}', [HomePageController::class, 'pageRender'])->name('page_demo');
 
-Route::get('blog/view/{slug}', [BlogController::class, 'View'])->where('slug', 'blog/view/.*');
-
+Route::get('blog/view/{slug}', [BlogController::class, 'show'])
+    ->where('slug', '[a-z0-9-]+') // Allow lowercase letters, numbers, and dashes
+    ->name('blog.show');
+    
 // Frontend Routes for Blog Posts
-Route::prefix('blogs')->name('blog.')->group(function () {
+Route::prefix('blogs')->name('blog.')->group(callback: function () {
     Route::get('/', [\App\Http\Controllers\Front\BlogController::class, 'index'])->name('index');
 //     Route::get('/{slug}', [\App\Http\Controllers\Front\BlogController::class, 'show'])->name('show');
 });

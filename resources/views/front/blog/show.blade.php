@@ -1,7 +1,7 @@
 @extends('layouts.front')
 
 @section('title')
-    {!! $post->title !!}
+    {!! $blog->title !!}
 @endsection
 
 @section('style')
@@ -102,182 +102,55 @@
 
 
 @section('content')
-<div class="container mx-auto max-w-screen-lg px-4 py-2">
-    <!-- Blog Post Title -->
-    <h1 class="text-4xl font-bold mb-6">{!! $post->title !!}</h1>
+<section class="hero section dark-white px-4 pt-4">
+        <!-- Blog Title -->
+        <h1 class="text-4xl font-bold mb-6 text-gray-900">{!! $blog->title !!}</h1>
 
-    <!-- Blog Post Author -->
-    <span class="text-gray-600 mb-4 bg-yellow-500 p-2">By {{ $post->author }}</span>
-    <span class="text-gray-600 mb-4 bg-gray-200 p-2"> -  {{ $post->updated_at->diffForHumans() }}</span>
-
-    <!-- Blog Post Content --> 
-    <p class="text-lg text-gray-700 mb-6">{!! $post->content !!}</p> 
-
-    <!-- Image -->
-
-    @if (!empty($post->images) && is_array(json_decode($post->images, true)))
-    <div class="swiper-container mb-8">
-        <div class="swiper-wrapper">
-            @foreach (json_decode($post->images) as $image)
-                @if (!empty($image))
-                <div class="swiper-slide">
-                    <img src="{{ asset('storage/' . $image) }}" alt="{{ $post->title }}" class="rounded-lg">
-                </div>
-                @endif
-            @endforeach
+        <!-- Blog Metadata -->
+        <div class="flex items-center space-x-4 mb-8">
+            <!-- Author -->
+            <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                By {{ $blog->author }}
+            </span>
+            <!-- Updated At -->
+            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">
+                Updated {{ $blog->updated_at->diffForHumans() }}
+            </span>
         </div>
-        <!-- <div class="swiper-pagination"></div> -->
-        <!-- Custom Navigation Buttons -->
-        
-        <div class="flex justify-center mt-4 space-x-4">
-            <button id="nav-swiper-animate" class="swiper-custom-prev px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 transition">
-                < --
-            </button>
-            <button id="nav-swiper-animate" class="swiper-custom-next px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 transition">
-                -- >
-            </button>
-        </div>
-        
-        
-    </div>
-    @elseif ($post->image)
-        <div class="mb-6">
-            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="rounded-lg">
-        </div>
-    @endif
 
-    <!-- Video -->
-    @if ($post->video_url)
-        <div class="mb-6 mt-6">
-            <iframe 
-                src="{{ $post->video_url }}" 
-                frameborder="0" 
-                allowfullscreen 
-                class="w-full h-full rounded-lg shadow-lg"
-            ></iframe>
-        </div>
-    @endif
-    <br>
-    <!-- Back to Home Button -->
-    <a href="{{ route('blog.index') }}" class="inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
-        ← Back to Blog Lists
-    </a>
-
-    <!-- Divider -->
-    <br class="border-gray-300 my-8">
-
-    <!-- Contact Form -->
-    <div class="bg-white shadow-md rounded-lg p-6 mt-12">
-        <h2 class="text-2xl font-bold mb-6 text-gray-800">Contact the Author</h2>
-        
-        <!-- Notification -->
-        @if(session('success'))
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-                <strong class="font-bold">Success!</strong>
-                <span class="block">{{ session('success') }}</span>
-            </div>
-        @elseif(session('error'))
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
-                <strong class="font-bold">Error!</strong>
-                <span class="block">{{ session('error') }}</span>
-            </div>
+        <!-- Featured Image -->
+        @if ($blog->image_url)
+            <img src="{{ $blog->image_url }}" alt="{{ $blog->title }}" class="w-full h-96 object-cover rounded-lg mb-8">
         @endif
 
-        <!-- Form -->
-        <form action="{{ route('contact.store') }}" method="POST" class="space-y-6">
-            @csrf
+        <!-- Blog Content -->
+        <div class="prose max-w-none text-gray-700">
+            @if (isset($pagebody))
+                {!! $pagebody !!} <!-- Display page_body if available -->
+            @else
+                {!! $blog->content !!} <!-- Fallback to blog content -->
+            @endif
+        </div>
 
-            <!-- Name Input -->
-            <div>
-                <label for="name" class="block text-sm font-bold text-gray-700 mb-2">Name</label>
-                <input 
-                    type="text" 
-                    name="name" 
-                    id="name" 
-                    class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    placeholder="Enter your name"
-                    required
-                >
-            </div>
+        <!-- Divider -->
+        <hr class="my-8 border-t border-gray-200">
 
-            <!-- Email Input -->
-            <div>
-                <label for="email" class="block text-sm font-bold text-gray-700 mb-2">Email</label>
-                <input 
-                    type="email" 
-                    name="email" 
-                    id="email" 
-                    class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    placeholder="Enter your email"
-                    required
-                >
-            </div>
-
-            <!-- Message Input -->
-            <div>
-                <label for="message" class="block text-sm font-bold text-gray-700 mb-2">Message</label>
-                <textarea 
-                    name="message" 
-                    id="message" 
-                    rows="6" 
-                    class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    placeholder="Enter your message"
-                    required
-                ></textarea>
-            </div>
-
-            <!-- Submit Button -->
-            <div>
-                <button 
-                    type="submit" 
-                    class="w-full bg-blue-500 text-white py-3 rounded-md font-semibold hover:bg-blue-600 transition duration-300"
-                >
-                    Send
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
+        <!-- Disqus Comments Section -->
+        <div id="disqus_thread" class="mt-8"></div>
+</section>
 @endsection
 
 @push('scripts')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const swiper = new Swiper('.swiper-container', {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 0,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            navigation: {
-                nextEl: '.swiper-custom-next',
-                prevEl: '.swiper-custom-prev',
-            },
-            effect: 'fade', // Optional fade effect
-            fadeEffect: {
-                crossFade: true,
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 1,
-                    spaceBetween: 10,
-                },
-                1024: {
-                    slidesPerView: 1,
-                    spaceBetween: 5,
-                },
-            }
-        });
-    });
-
+    <!-- Disqus Script -->
+    <script>
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://thernthy-site.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </script>
 @endpush
 

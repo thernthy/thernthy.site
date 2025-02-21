@@ -140,8 +140,8 @@
       <!-- Grid Container -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
        @if($blogs->isEmpty())
-          
-      @else
+          <h4 class="text-rend text-center">NO POST</h4>
+       @else
           @foreach ($blogs as $blog)
               <div class="shadow-lg rounded-lg overflow-hidden flex flex-col">
                   <!-- Featured Image -->

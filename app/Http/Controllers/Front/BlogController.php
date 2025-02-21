@@ -10,16 +10,31 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = BlogPost::latest()->paginate(5);
-        return view('front.blog.index', compact('posts'));
+        $perPage = $request->input('page', 8);
+        $filterDate = $request->input('date', null); 
+        $orderBy = $request->input('sort', 'DESC'); 
+        $query = BlogPost::query();
+        if ($filterDate) {
+            $query->whereDate('created_at', $filterDate);
+        }
+        $query->orderBy('created_at', $orderBy);
+        $posts = $query->paginate($perPage);
+        return view('front.blog.index', compact('posts', 'filterDate', 'orderBy'));
     }
-
     public function show($slug)
     {
-        $post = BlogPost::where('slug', $slug)->firstOrFail();
-        return view('front.blog.show', compact('post'));
+        $blog = BlogPost::where('slug', $slug)->firstOrFail();
+        $pagebody = null;
+
+        if ($blog && $blog->used_page) {
+            $page = Page::where('page_id', $blog->used_page)->first();
+            if ($page) {
+                $pagebody = $page->page_body;
+            }
+        }
+        return view('front.blog.show', compact('blog', 'pagebody'));
     }
 
     public function ListBlogs(Request $request)

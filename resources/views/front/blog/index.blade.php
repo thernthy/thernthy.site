@@ -116,6 +116,45 @@
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Grid Container -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      @if($posts->isEmpty())
+          <h4 class="text-rend text-center">NO POST</h4>
+       @else
+          @foreach ($posts as $blog)
+          <div class="shadow-lg rounded-lg overflow-hidden flex flex-col">
+                <a href="{{ url('blog',['view',$blog->slug]) }}">
+                    <!-- Featured Image -->
+                    <img class="w-full h-48 object-cover" src="{{ $blog->cover_image }}" alt="{{ $blog->title }}">
+
+                    <!-- Card Content -->
+                    <div class="p-6 flex flex-col flex-grow">
+                        <!-- Title -->
+                        <h2 class="text-xl font-semibold mb-2">
+                            {{ $blog->title }}
+                        </h2>
+
+                        <!-- Description with Ellipsis -->
+                        <p class="text-gray-500 mb-4 overflow-hidden overflow-ellipsis line-clamp-3">
+                          @if (isset($pagebody))
+                              {!! $pagebody !!} <!-- Display page_body if available -->
+                          @else
+                              {!! $blog->content !!} <!-- Fallback to blog content -->
+                          @endif
+                        </p>
+
+                        <!-- Metadata (Author and Date) -->
+                        <div class="text-sm text-gray-500 mt-auto">
+                            <span>By {{ $blog->author }}</span> <!-- Assuming author is a relationship -->
+                            <span> • </span>
+                            <span>{{ $blog->created_at->format('F j, Y') }}</span> <!-- Format the date -->
+                        </div>
+                    </div>
+                  </a>
+              </div>
+
+          @endforeach
+        @endif
+
+
                   <!-- Card 1 -->
         <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col">
           <!-- Featured Image -->
