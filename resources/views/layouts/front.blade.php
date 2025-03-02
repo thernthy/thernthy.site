@@ -55,7 +55,7 @@
     {{-- meta hader token --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-<body class="font-sans antialiased dark-white">
+<body class="font-sans antialiased dark-white bg-[#2e4e6d]">
     @include('layouts.header')
     <main class="main">
         <div class="mx-auto">
