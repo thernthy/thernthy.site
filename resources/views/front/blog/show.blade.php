@@ -104,7 +104,7 @@
 @section('content')
 <section class="hero section dark-white px-4 pt-4">
         <!-- Blog Title -->
-        <h1 class="text-4xl font-bold mb-6 text-gray-900">{!! $blog->title !!}</h1>
+        <h1 class="text-4xl font-bold mb-6 text-white">{!! $blog->title !!}</h1>
 
         <!-- Blog Metadata -->
         <div class="flex items-center space-x-4 mb-8">
@@ -113,7 +113,7 @@
                 By {{ $blog->author }}
             </span>
             <!-- Updated At -->
-            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">
+            <span class="bg-gray-200 text-white px-3 py-1 rounded-full text-sm">
                 Updated {{ $blog->updated_at->diffForHumans() }}
             </span>
         </div>
@@ -124,7 +124,7 @@
         @endif
 
         <!-- Blog Content -->
-        <div class="prose max-w-none text-gray-700">
+        <div class="prose max-w-none text-white">
             @if (isset($pagebody))
                 {!! $pagebody !!} <!-- Display page_body if available -->
             @else
