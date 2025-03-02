@@ -82,6 +82,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('manager')->group(functi
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('demo/{sluge}', [HomePageController::class, 'pageRender'])->name('page_demo');
+Route::get('page/{sluge}', [HomePageController::class, 'pageRender'])->where('slug', '[a-z0-9-]+') ;
 
 Route::get('blog/view/{slug}', [BlogController::class, 'show'])
     ->where('slug', '[a-z0-9-]+') // Allow lowercase letters, numbers, and dashes

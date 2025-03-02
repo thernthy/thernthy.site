@@ -135,10 +135,9 @@ class HomePageController extends Controller
     {
         
         $system_locale = session('locale', 'en'); 
-    
         $page = Page::where('page_slug', $slug)
-                    ->where('locale', $system_locale)
-                    ->first();
+        ->where('locale', $system_locale)
+        ->first();
         return view('front.demo.pageRender', compact('page'));
     }
     

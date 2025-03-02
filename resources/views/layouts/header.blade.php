@@ -74,7 +74,7 @@
           </a>
         </li>
         <li>
-          <a href="/comunity-offer" class="{{ request()->is('comunity-offer')? 'bg-[#c0d6f94a] rounded-2xl rounded-t-none text-white' : 'text-gray-700' }}">
+          <a href="{{ url('page','comunity-offer') }}" class="{{ request()->is('comunity-offer')? 'bg-[#c0d6f94a] rounded-2xl rounded-t-none text-white' : 'text-gray-700' }}">
             <i class="bi bi-file-earmark-text navicon"></i>
             Comunity Offer
           </a>
