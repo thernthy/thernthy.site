@@ -63,8 +63,9 @@
 body {
   color: var(--default-color);
   font-family: var(--default-font);
+  background-color: #2e4e6d;
 }
-
+.header
 a {
   color: var(--accent-color);
   text-decoration: none;
@@ -143,7 +144,6 @@ h6 {
 --------------------------------------------------------------*/
 .header {
   color: var(--default-color);
-  background-color: #ffffff;
   position: fixed;
   top: 0;
   left: 0;

@@ -29,7 +29,7 @@
     <link href="{{ asset('assets/thy/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
     <!-- Main CSS File -->
-    <link href="{{ asset('assets/thy/css/main.css?v=1') }}" rel="stylesheet">
+    <link href="{{ asset('assets/thy/css/main.css?v=2') }}" rel="stylesheet">
     <!-- Meta Tags -->
 
     <!-- Icon Scritp -->
