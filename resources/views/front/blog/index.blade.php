@@ -128,12 +128,12 @@
                     <!-- Card Content -->
                     <div class="p-6 flex flex-col flex-grow">
                         <!-- Title -->
-                        <h2 class="text-xl font-semibold mb-2">
+                        <h2 class="text-xl text-white font-semibold mb-2">
                             {{ $blog->title }}
                         </h2>
 
                         <!-- Description with Ellipsis -->
-                        <p class="text-gray-500 mb-4 overflow-hidden overflow-ellipsis line-clamp-3">
+                        <p class="text-white mb-4 overflow-hidden overflow-ellipsis line-clamp-3">
                           @if (isset($pagebody))
                               {!! $pagebody !!} <!-- Display page_body if available -->
                           @else
@@ -142,7 +142,7 @@
                         </p>
 
                         <!-- Metadata (Author and Date) -->
-                        <div class="text-sm text-gray-500 mt-auto">
+                        <div class="text-sm text-white mt-auto">
                             <span>By {{ $blog->author }}</span> <!-- Assuming author is a relationship -->
                             <span> • </span>
                             <span>{{ $blog->created_at->format('F j, Y') }}</span> <!-- Format the date -->
