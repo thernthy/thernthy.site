@@ -25,26 +25,40 @@ export const PROJECTS = [
   },
 ];
 
-export const MENTIONS = [
+const FB_ID = "61550073096893";
+
+const fbEmbed = (storyFbid: string) =>
+  "https://www.facebook.com/plugins/post.php?href=" +
+  encodeURIComponent(
+    `https://www.facebook.com/permalink.php?story_fbid=${storyFbid}&id=${FB_ID}`
+  ) +
+  "&show_text=true&width=500";
+
+export const ARTICLES = [
   {
-    platform: "Facebook",
-    title: "Tech Community Spotlight",
-    date: "Oct 2026",
-    excerpt:
-      "Highlighting Thy Thern's work on mobile application shielding and enterprise DLP proof-of-concepts—bridging offensive reverse engineering insights with practical defense.",
-    url: "https://facebook.com",
-    domain: "facebook.com/posts/...",
-    badge: "Social Feature",
+    source: "Kiripost",
+    title: "Young People's Digital Talents Promoted at International Youth Day Celebration",
+    url: "https://kiripost.com/stories/young-peoples-digital-talents-promoted-at-international-youth-day-celebration",
+    domain: "kiripost.com",
+    badge: "Press / Blog",
+  },
+];
+
+export const FACEBOOK_POSTS = [
+  {
+    title: "Facebook Post 1",
+    src: fbEmbed("pfbid02s84PDUNc2hWNsXZN452bd9f8vr3gdncfac255bMhHgAmHh3HRRZVnE4AUvg7UXN3l"),
+    height: 773,
   },
   {
-    platform: "Blog",
-    title: "Engineering & Security Blog",
-    date: "Sep 2026",
-    excerpt:
-      "How builders are architecting multi-tenant Telegram Mini Apps and KHQR payment integrations with modern TypeScript and containerized edge infrastructure.",
-    url: "https://example.com",
-    domain: "techblog.example.com",
-    badge: "Press / Blog",
+    title: "Facebook Post 2",
+    src: fbEmbed("pfbid0ewguGc1Nvk5RJPPrLzipYngnWP2RChDE7JBjSXKMWU2Jh11FBYNpTMAqzWeFJuPFl"),
+    height: 575,
+  },
+  {
+    title: "Facebook Post 3",
+    src: fbEmbed("pfbid0i4kyxdMiAXKizuHFY5kS7Lkk4K8VgPmjkckUww351CdXZgBRYb1oq5JsHx9u944cl"),
+    height: 250,
   },
 ];
 
