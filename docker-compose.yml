@@ -1,8 +1,10 @@
 services:
   portfolio:
-    build: .
+    image: nginx:alpine
     container_name: thernthy-site
     restart: unless-stopped
+    volumes:
+      - /var/www/thernthy.site/dist:/usr/share/nginx/html:ro
     networks:
       - traefik
     labels:
