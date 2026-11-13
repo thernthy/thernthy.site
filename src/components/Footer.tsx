@@ -3,7 +3,7 @@ import { Check, Copy, ArrowUpRight } from "lucide-react";
 
 export function Footer() {
   const [copied, setCopied] = useState(false);
-  const email = "hello@thythern.dev";
+  const email = "thythern.site@gmail.com";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(email);
@@ -21,17 +21,26 @@ export function Footer() {
           <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
             Let’s build or secure something together.
           </p>
-          <button
-            onClick={handleCopy}
-            className="inline-flex items-center gap-2 text-xs font-mono text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
-          >
-            {email}
-            {copied ? (
-              <Check className="w-3.5 h-3.5 text-emerald-500" />
-            ) : (
-              <Copy className="w-3.5 h-3.5" />
-            )}
-          </button>
+          <div className="inline-flex items-center gap-3">
+            <a
+              href={`mailto:${email}`}
+              className="text-xs font-mono text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            >
+              {email}
+            </a>
+            <button
+              onClick={handleCopy}
+              aria-label="Copy email address"
+              title="Copy email address"
+              className="inline-flex items-center text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
+            >
+              {copied ? (
+                <Check className="w-3.5 h-3.5 text-emerald-500" />
+              ) : (
+                <Copy className="w-3.5 h-3.5" />
+              )}
+            </button>
+          </div>
         </div>
 
         <div className="flex items-center gap-5 text-sm text-zinc-500">
@@ -44,7 +53,7 @@ export function Footer() {
             GitHub <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/thy-thern-42037844b/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
