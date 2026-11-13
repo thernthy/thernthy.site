@@ -27,10 +27,15 @@ npm run build    # production build -> dist/
 
 ## Deploy
 
-Build the site, then serve `dist/` with the included `docker-compose.yml`
-(nginx behind Traefik, domain `thernthy.site`):
+Build and deploy the site with Docker Compose. The included Dockerfile builds the Vite app and packages the generated `dist/` files into Nginx (behind Traefik, domain `thernthy.site`):
 
 ```bash
-npm run build
-docker compose up -d
+docker compose up -d --build
+```
+
+To deploy a newer version after pulling the latest branch:
+
+```bash
+git pull origin v2026
+docker compose up -d --build
 ```
