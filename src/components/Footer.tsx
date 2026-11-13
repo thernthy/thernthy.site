@@ -61,6 +61,14 @@ export function Footer() {
             LinkedIn <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
           <a
+            href="https://x.com/immex23"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+          >
+            X <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+          <a
             href="https://t.me"
             target="_blank"
             rel="noopener noreferrer"
