@@ -8,6 +8,14 @@ export const NAV_ITEMS = [
 
 export const PROJECTS = [
   {
+    title: "Sievphov Web Platform",
+    description:
+      "A web platform project. Visit the platform to learn more about its purpose and features.",
+    tags: ["Web Platform"],
+    link: "https://sievphovweb.thernthy.site/about",
+    year: "2026",
+  },
+  {
     title: "Grab One Platform",
     description:
       "Multi-tenant e-commerce & POS platform featuring Telegram Mini Apps, dynamic custom domains, and real-time WebSocket synchronization.",
